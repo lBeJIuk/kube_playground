@@ -27,7 +27,10 @@ serviceAccounts:
 #       - "<MONValue2>"
 #     cephFS:
 #       subvolumeGroup: "csi"
-csiConfig: []
+csiConfig:
+  - clusterID: 432e538a-f96c-4bb7-933e-29b26339704b
+    monitors:
+      - "192.168.1.220:6789"
 
 # Set logging level for csi containers.
 # Supported values from 0 to 5. 0 for general useful logs,
@@ -108,7 +111,7 @@ nodeplugin:
 
 provisioner:
   name: provisioner
-  replicaCount: 3
+  replicaCount: 1
   # Timeout for waiting for creation or deletion of a volume
   timeout: 60s
 
@@ -285,4 +288,3 @@ configMapName: ceph-csi-config
 # configMapKey:
 # Use an externally provided configmap
 externallyManagedConfigmap: false
-
